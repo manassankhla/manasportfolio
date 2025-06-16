@@ -3,6 +3,7 @@ import { motion } from "framer-motion"
 import { ChevronDown, Download, Github, Linkedin, Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
+
 export default function HeroSection() {
   const [text, setText] = useState("")
   const fullText = "Crafting digital products that blend logic, empathy, and innovation."
@@ -57,15 +58,29 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
-            <a href="/Manas_Sankhla_Resume.pdf" download>
-            <Button
-              size="lg"
-              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105"
-            >
-              <Download className="mr-2 h-5 w-5" />
-              Download Resume
-            </Button>
-            </a>
+<a href={`${import.meta.env.BASE_URL}Manas_Sankhla_Resume.pdf`} download>
+  <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105">
+    <Download className="mr-2 h-5 w-5" />
+    Download Resume
+  </Button>
+</a>
+
+
+
+            {/* <a href="/Manas_Sankhla_Resume.pdf" download="Manas_Sankhla_Resume.pdf">
+
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105"
+              >
+                <Download className="mr-2 h-5 w-5" />
+                Download Resume
+              </Button>
+            </a> */}
+
+
+
+
 
             <div className="flex space-x-4">
               <motion.a

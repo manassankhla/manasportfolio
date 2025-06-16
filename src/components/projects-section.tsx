@@ -1,8 +1,8 @@
 import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 import { useRef } from "react"
-import { ExternalLink, Github, TrendingUp, Leaf, BarChart3 } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { Github, TrendingUp, Leaf, BarChart3 } from "lucide-react"
+
 
 export default function ProjectsSection() {
   const ref = useRef(null)
@@ -26,6 +26,7 @@ export default function ProjectsSection() {
       icon: TrendingUp,
       color: "from-green-400 to-emerald-400",
       bgGradient: "from-green-900/20 to-emerald-900/20",
+      githubLink: "https://github.com/manassankhla/Stockify",
     },
     {
       title: "Menuwave",
@@ -34,7 +35,7 @@ export default function ProjectsSection() {
       description:
         "An innovative QR-based digital menu system that helps restaurants transition to paperless operations while enhancing customer experience.",
       impact: "Reducing paper waste while improving customer engagement",
-      technologies: ["JavaScript", "HTML/CSS", "QR Code API", "Responsive Design"],
+      technologies: ["Python", "HTML/CSS", "QR Code API", "Responsive Design"],
       features: [
         "QR code-based menu access",
         "Paperless restaurant operations",
@@ -44,6 +45,7 @@ export default function ProjectsSection() {
       icon: Leaf,
       color: "from-blue-400 to-cyan-400",
       bgGradient: "from-blue-900/20 to-cyan-900/20",
+      githubLink: "https://github.com/manassankhla/MENUWAVE_PROJECT",
     },
   ]
 
@@ -123,14 +125,21 @@ export default function ProjectsSection() {
                     </div>
 
                     <div className="flex gap-4">
-                      <Button variant="outline" className="border-gray-600 text-gray-300  cursor-pointer bg-blue-500">
+                      <a
+  href={project.githubLink}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-flex items-center px-4 py-2 border border-gray-600 rounded-md text-gray-300 bg-blue-500 cursor-pointer hover:bg-blue-600 transition"
+>
+
                         <Github className="mr-2 h-4 w-4" />
                         View Code
-                      </Button>
-                      <Button className={`bg-gradient-to-r ${project.color} text-white hover:bg-sky-500 cursor-pointer hover:text-red-500`}>
+                      </a>
+
+                      {/* <Button className={`bg-gradient-to-r ${project.color} text-white hover:bg-sky-500 cursor-pointer hover:text-red-500`}>
                         <ExternalLink className="mr-2 h-4 w-4 "  />
                         Live Demo
-                      </Button>
+                      </Button> */}
                     </div>
                   </div>
 
@@ -164,7 +173,7 @@ export default function ProjectsSection() {
         >
           <h3 className="text-2xl font-semibold mb-8 text-white text-center">Additional Experience</h3>
           <div className="grid md:grid-cols-1 gap-6">
-            {extras.map((extra, index) => (
+            {extras.map((extra) => (
               <div
                 key={extra.title}
                 className="bg-gray-900/50 backdrop-blur-sm rounded-xl p-6 border border-gray-800 hover:border-gray-600 transition-all duration-300"
